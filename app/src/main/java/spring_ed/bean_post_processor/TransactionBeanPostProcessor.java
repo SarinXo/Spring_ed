@@ -7,6 +7,7 @@ import java.lang.reflect.Proxy;
 import java.util.HashMap;
 import java.util.Map;
 
+@BeanPostProcess
 public class TransactionBeanPostProcessor implements BeanPostProcessor {
 
     private final Map<String, Class<?>> transactionBeans = new HashMap<>();

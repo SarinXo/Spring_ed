@@ -8,6 +8,7 @@ import org.springframework.util.ReflectionUtils;
 
 import java.util.Arrays;
 
+@BeanPostProcess
 public class InjectBeanPostProcessor implements BeanPostProcessor, ApplicationContextAware {
 
     private ApplicationContext applicationContext;
