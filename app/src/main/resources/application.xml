@@ -7,7 +7,14 @@
                              http://www.springframework.org/schema/context
                              http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <context:component-scan base-package="spring_ed"/>
+    <context:component-scan base-package="spring_ed"
+                            resource-pattern="**/*.class"
+                            scoped-proxy="no"
+                            use-default-filters="true">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+        <context:include-filter type="assignable" expression="spring_ed.database.repository.CrudRepository"/>
+        <context:include-filter type="regex" expression="com.\..+Repository"/>
+    </context:component-scan>
     <context:property-placeholder location="classpath:application.properties"/>
 
 <!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->

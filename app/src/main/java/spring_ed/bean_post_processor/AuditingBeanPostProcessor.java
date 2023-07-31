@@ -2,7 +2,6 @@ package spring_ed.bean_post_processor;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-
 import java.lang.reflect.Proxy;
 import java.util.HashMap;
 import java.util.Map;
