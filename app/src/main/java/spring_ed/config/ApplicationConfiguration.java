@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
@@ -42,9 +43,22 @@ public class ApplicationConfiguration {
     public ConnectionPool connectionPool2(@Value("${db.username}") String username ){
         return new ConnectionPool(username, 20);
     }
+    @Bean
+    public ConnectionPool connectionPool3(){
+        return new ConnectionPool("username", 30);
+    }
 
     @Bean
     public UserRepository userRepository(ConnectionPool connectionPool2){
         return new UserRepository(connectionPool2);
+    }
+
+    // ! | &
+    @Profile("web")
+    @Bean
+    public UserRepository userRepository2( ){
+        var b1 = connectionPool3();
+        var b2 = connectionPool3();
+        return new UserRepository(connectionPool3());
     }
 }

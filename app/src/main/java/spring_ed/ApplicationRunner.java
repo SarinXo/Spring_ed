@@ -18,9 +18,16 @@ public class ApplicationRunner {
         System.out.println(Serializable.class.isAssignableFrom(value.getClass()));
 
 //        try (var context = new ClassPathXmlApplicationContext("application.xml")) {
-        try (var context = new AnnotationConfigApplicationContext(ApplicationConfiguration.class)) {
-                //      clazz -> String -> Map<String, Object>
-                System.out.println("holly");
+        //тол
+        try (var context = new AnnotationConfigApplicationContext()) {
+                context.register(ApplicationConfiguration.class);
+                // ENVIROMENT -содержит все зависимости и контексты, но лучше не использовать т.к.
+                // это внутренняя кухня, а эти профили можно и через файл application.yaml/properties
+                // задать, но так тоже +- ок, а для других значений есть аннотация @Value($/#{})
+                // можно установить профиль или получить
+                context.getEnvironment().getActiveProfiles();
+                context.refresh();//Запускает жизненный цикл бинов, но используется только 1 раз
+                                  //последующие вызовы будут бесполезны
                 var connectionPool = context.getBean("id_is_pool1", ConnectionPool.class);
                 System.out.println(connectionPool);
 
