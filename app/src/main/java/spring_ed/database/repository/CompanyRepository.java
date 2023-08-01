@@ -36,8 +36,8 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
     // для inject'а поля или свойства в виде зависимости, то можем использовать
     // @Value - внутри нее используем EL или SpEL
     private final int poolSize;
-    @Autowired
-    public CompanyRepository(ConnectionPool pool1, List<ConnectionPool> pools,
+
+    public CompanyRepository(@Qualifier("id_is_pool1") ConnectionPool pool1, List<ConnectionPool> pools,
                              @Value("${db.pool.size}") Integer poolSize) {
         this.pool = pool1;
         this.pools = pools;

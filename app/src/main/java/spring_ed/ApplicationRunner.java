@@ -20,6 +20,7 @@ public class ApplicationRunner {
 //        try (var context = new ClassPathXmlApplicationContext("application.xml")) {
         try (var context = new AnnotationConfigApplicationContext(ApplicationConfiguration.class)) {
                 //      clazz -> String -> Map<String, Object>
+                System.out.println("holly");
                 var connectionPool = context.getBean("id_is_pool1", ConnectionPool.class);
                 System.out.println(connectionPool);
 
