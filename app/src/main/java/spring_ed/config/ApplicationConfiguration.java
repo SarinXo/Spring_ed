@@ -27,16 +27,18 @@ import static org.springframework.context.annotation.FilterType.REGEX;
 //другие Configuration classes
 @Import(WebConfig.class)
 @Configuration
-@PropertySource("classpath:application.properties")
-@ComponentScan(basePackages = "spring_ed",
-               useDefaultFilters = false,
-               scopedProxy = ScopedProxyMode.NO,
-               includeFilters = {
-                    @Filter(type = ANNOTATION, value = Component.class),
-                    @Filter(type = ASSIGNABLE_TYPE, value = CrudRepository.class),
-                    @Filter(type = REGEX, pattern = "com\\..+Repository")
-               }
-)
+//@PropertySource("classpath:application.properties")
+//Это есть @SpringBootApplication
+//@ComponentScan(basePackages = "spring_ed",
+//               useDefaultFilters = false,
+//               scopedProxy = ScopedProxyMode.NO,
+//               includeFilters = {
+//                    @Filter(type = ANNOTATION, value = Component.class),
+//                    @Filter(type = ASSIGNABLE_TYPE, value = CrudRepository.class),
+//                    @Filter(type = REGEX, pattern = "com\\..+Repository")
+//               }
+//)
+// теперь его заменяет @SpringBootApplication в которой уже есть ComponentScan
 public class ApplicationConfiguration {
 
     @Bean
