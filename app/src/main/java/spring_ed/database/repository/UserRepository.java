@@ -1,6 +1,5 @@
 package spring_ed.database.repository;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import spring_ed.database.pool.ConnectionPool;
@@ -10,7 +9,6 @@ public class UserRepository {
 
     private final ConnectionPool connectionPool;
 
-    //@Autowired
     public UserRepository(@Qualifier("id_is_pool1") ConnectionPool connectionPool) {
         this.connectionPool = connectionPool;
     }

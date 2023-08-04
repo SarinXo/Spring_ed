@@ -23,7 +23,7 @@ import static org.springframework.context.annotation.FilterType.REGEX;
 
 //комбинация всех 3-х вариантов определения bean definitions
 //можем подключать их через эту аннотацию
-@ImportResource("classpath:application.xml")
+//@ImportResource("classpath:application.xml")
 //другие Configuration classes
 @Import(WebConfig.class)
 @Configuration
@@ -49,7 +49,7 @@ public class ApplicationConfiguration {
     }
 
     @Bean
-    public UserRepository userRepository(ConnectionPool connectionPool2){
+    public UserRepository userRepository1(ConnectionPool connectionPool2){
         return new UserRepository(connectionPool2);
     }
 
