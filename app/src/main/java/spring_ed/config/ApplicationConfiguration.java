@@ -27,7 +27,7 @@ import static org.springframework.context.annotation.FilterType.REGEX;
 //другие Configuration classes
 @Import(WebConfig.class)
 @Configuration
-//@PropertySource("classpath:application.properties")
+//@PropertySource("classpath:application.yaml")
 //Это есть @SpringBootApplication
 //@ComponentScan(basePackages = "spring_ed",
 //               useDefaultFilters = false,
