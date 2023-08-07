@@ -1,6 +1,7 @@
 package spring_ed.database.repository;
 
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,6 +21,7 @@ import java.util.Optional;
 @Repository
 @Transaction
 @Auditing
+@RequiredArgsConstructor
 public class CompanyRepository implements CrudRepository<Integer, Company> {
 
 
@@ -28,6 +30,7 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
     // Так же можно использовать аннотацию @Qualifier("bean_name_or_alias")
     // с конструктором такая же тема - переданный аргумент должен называться так же как и бин
     // который инжектим
+    @Qualifier("id_is_pool1")
     private final ConnectionPool pool;
 
     //спокойно инжектит в коллекцию все существующие бины данного класса
@@ -36,14 +39,8 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
 
     // для inject'а поля или свойства в виде зависимости, то можем использовать
     // @Value - внутри нее используем EL или SpEL
+    @Value("${db.pool.size}")
     private final int poolSize;
-
-    public CompanyRepository(@Qualifier("id_is_pool1") ConnectionPool pool1, List<ConnectionPool> pools,
-                             @Value("${db.pool.size}") Integer poolSize) {
-        this.pool = pool1;
-        this.pools = pools;
-        this.poolSize = poolSize;
-    }
 
     @PostConstruct
     private void init() {
