@@ -29,8 +29,16 @@ spring.profiles.active: prod
 
 # ONLY warn log messages will be showing on screen
 logging:
+  #pattern: - for unique logging
   level:
     # settings for all log Classes
+    # OFF = disable
     root: warn
     # set log hierarchy for classes/class on this way
     spring_ed.database: info
+  file:
+    #10 mb MAX size, else will be created new file {file-name}+(FILE_NUMBER).log
+    # myLog1.log, myLog2.log e.c.t.
+    name: myLog.log
+    path: /
+
