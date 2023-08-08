@@ -10,4 +10,11 @@ public class CompanyReadDto {
     public Integer getId(){
         return id;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof CompanyReadDto)
+            return this.id.equals( ((CompanyReadDto) obj).id);
+        return false;
+    }
 }
