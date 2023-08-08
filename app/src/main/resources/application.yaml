@@ -26,3 +26,11 @@ db:
         var3: 4
 
 spring.profiles.active: prod
+
+# ONLY warn log messages will be showing on screen
+logging:
+  level:
+    # settings for all log Classes
+    root: warn
+    # set log hierarchy for classes/class on this way
+    spring_ed.database: info

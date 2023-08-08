@@ -2,6 +2,7 @@ package spring_ed.database.repository;
 
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,6 +19,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Repository
 @Transaction
 @Auditing
@@ -44,16 +46,16 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
 
     @PostConstruct
     private void init() {
-        System.out.println("init company repository");
+        log.info("init company repository");
     }
 
     @Override
     public Optional<Company> findById(Integer id) {
-        System.out.println("findById method...");
+        log.info("findById method...");
         return Optional.of(new Company(id));
     }
     @Override
     public void delete(Company entity) {
-        System.out.println("delete method...");
+        log.info("delete method...");
     }
 }
