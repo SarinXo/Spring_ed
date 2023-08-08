@@ -22,9 +22,9 @@ public class JpaConfiguration {
 
     //теперь нужно создать бин от нашей концигурации бд
 
-    @Bean
-    @ConfigurationProperties(prefix = "db")
-    public YamlDatabaseConfigProperties databaseProperties(){
-        return new YamlDatabaseConfigProperties();
-    }
+//    @Bean
+//    @ConfigurationProperties(prefix = "db")
+//    public YamlDatabaseConfigProperties databaseProperties(){
+//        return new YamlDatabaseConfigProperties();
+//    }
 }

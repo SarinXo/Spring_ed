@@ -1,9 +1,11 @@
 username:
   value: ilySHA
-#?? ????????? postgres, ????? username.value
 
+  #if we need to rename our properties in Class to camelCase,
+  # we can wrote variables in kebab-case
 db:
-  username: ${username.value:postgres}
+  #default postgres, if exist username.value, it will be written
+  user-name: ${username.value:postgres}
   password: pass
   driver: PostgresDriver
   url: postgres:5432
@@ -15,7 +17,7 @@ db:
       - 13
       - 14
       - 15
-    complex_massiv:
+    complex-massiv:
       - var1: 1
         var2: 2
         var3: 3
@@ -23,6 +25,4 @@ db:
         var2: 3
         var3: 4
 
-spring:
-  profiles:
-    active: prod
+spring.profiles.active: prod
