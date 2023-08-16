@@ -1,14 +1,12 @@
-package spring_ed.database.repository;
+package spring_ed.database.repository.service;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import spring_ed.database.entity.Company;
+import spring_ed.database.repository.CrudRepository;
 import spring_ed.dto.CompanyReadDto;
 import spring_ed.listener.entity.Event;
 import spring_ed.service.CompanyService;
@@ -25,7 +23,7 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 //@ExtendWith(MockitoExtension.class)
 @SpringBootTest
-class CompanyRepositoryTest {
+class CompanyServiceTest {
 
     private final static int COMPANY_ID = 1;
     @Mock

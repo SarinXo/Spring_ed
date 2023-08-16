@@ -1,7 +1,8 @@
-package spring_ed.database.repository.annotation;
+package spring_ed.database.repository.integration.annotation;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import spring_ed.database.repository.integration.ApplicationTestRunner;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,7 +14,9 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@SpringBootTest
+//указываем в качестве запускаемого классв не ApplicationRunner помеченный аннотацией SpringBootApplication
+// а наш тестовый класс
+@SpringBootTest(classes = ApplicationTestRunner.class)
 @ActiveProfiles("test")
 public @interface IT {//Integration Test
 }
