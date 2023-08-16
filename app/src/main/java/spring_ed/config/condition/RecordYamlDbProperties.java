@@ -16,6 +16,8 @@ public record RecordYamlDbProperties(String userName,
                        List<Vars> complexMassiv){
         public record Vars(int var1,
                            int var2,
-                           int var3){}
+                           int var3){
+
+        }
     }
 }

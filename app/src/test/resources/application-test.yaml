@@ -1,0 +1,3 @@
+db:
+  user-name: ${username.value:postgres-test}
+  password: passTest
