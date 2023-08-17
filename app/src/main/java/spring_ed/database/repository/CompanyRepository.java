@@ -15,6 +15,7 @@ import spring_ed.database.entity.Company;
 import spring_ed.database.pool.ConnectionPool;
 
 import javax.annotation.PostConstruct;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -52,7 +53,7 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
     @Override
     public Optional<Company> findById(Integer id) {
         log.info("findById method...");
-        return Optional.of(new Company(id));
+        return Optional.of(new Company(id, null, Collections.EMPTY_MAP));
     }
     @Override
     public void delete(Company entity) {
