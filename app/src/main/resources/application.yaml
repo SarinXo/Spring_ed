@@ -1,10 +1,10 @@
 username:
   value: ilySHA
 
-  #if we need to rename our properties in Class to camelCase,
+  # if we need to rename our properties in Class to camelCase,
   # we can wrote variables in kebab-case
 db:
-  #default postgres, if exist username.value, it will be written
+  # default postgres, if exist username.value, it will be written
   user-name: ${username.value:postgres}
   password: pass
   driver: PostgresDriver
@@ -27,17 +27,28 @@ db:
 
 spring.profiles.active: prod
 
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: your_username
+    password: your_password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties.hibernate:
+      show_sql: true
+      format_sql: true
+
 # ONLY warn log messages will be showing on screen
 logging:
-  #pattern: - for unique logging
+  # pattern: - for unique logging
   level:
     # settings for all log Classes
     # OFF = disable
-    root: warn
+    root: INFO
     # set log hierarchy for classes/class on this way
     spring_ed.database: info
   file:
-    #10 mb MAX size, else will be created new file {file-name}+(FILE_NUMBER).log
+    # 10 mb MAX size, else will be created new file {file-name}+(FILE_NUMBER).log
     # myLog1.log, myLog2.log e.c.t.
     name: myLog.log
     path: /
