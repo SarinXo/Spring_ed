@@ -15,19 +15,33 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Data
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
-@Table(name = "payment")
-public class Payment implements BaseEntity<Long>{
+@Table(name = "users_chat")
+public class UserChat implements BaseEntity<Long>{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer amount;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "receiver_id")
-    private User receiver;
+    @JoinColumn(name = "chat_id")
+    private Chat chat;
+
+    public void setUser(User user){
+        this.user = user;
+        this.user.getUserChats().add(this);
+    }
+
+    public void setChat(Chat chat){
+        this.chat = chat;
+        this.chat.getUserChats().add(this);
+    }
+
 }
