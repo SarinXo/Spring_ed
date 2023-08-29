@@ -6,7 +6,7 @@ import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationEventPublisher;
 import spring_ed.database.entity.Company;
-import spring_ed.database.repository.CrudRepository;
+import spring_ed.database.repository.CompanyRepository;
 import spring_ed.dto.CompanyReadDto;
 import spring_ed.listener.entity.Event;
 import spring_ed.service.CompanyService;
@@ -28,7 +28,7 @@ class CompanyServiceTest {
 
     private final static int COMPANY_ID = 1;
     @Mock
-    private CrudRepository<Integer, Company> companyRepository;
+    private CompanyRepository companyRepository;
     @Mock
     private UserService userService;
     @Mock

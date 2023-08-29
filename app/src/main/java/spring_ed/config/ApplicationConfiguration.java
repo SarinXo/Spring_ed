@@ -2,24 +2,12 @@ package spring_ed.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-
-import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.ScopedProxyMode;
-import org.springframework.stereotype.Component;
 import spring_ed.database.pool.ConnectionPool;
-import spring_ed.database.repository.CrudRepository;
 import spring_ed.database.repository.UserRepository;
 import web.config.WebConfig;
-
-import static org.springframework.context.annotation.FilterType.ANNOTATION;
-import static org.springframework.context.annotation.FilterType.ASSIGNABLE_TYPE;
-import static org.springframework.context.annotation.FilterType.REGEX;
 
 //комбинация всех 3-х вариантов определения bean definitions
 //можем подключать их через эту аннотацию

@@ -3,8 +3,7 @@ package spring_ed.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
-import spring_ed.database.entity.Company;
-import spring_ed.database.repository.CrudRepository;
+import spring_ed.database.repository.CompanyRepository;
 import spring_ed.dto.CompanyReadDto;
 import spring_ed.listener.entity.AccessType;
 import spring_ed.listener.entity.Event;
@@ -15,7 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CompanyService {
 
-    private final CrudRepository<Integer, Company> companyRepository;
+    private final CompanyRepository companyRepository;
     private final UserService userService;
     private final ApplicationEventPublisher applicationEventPublisher;
 
