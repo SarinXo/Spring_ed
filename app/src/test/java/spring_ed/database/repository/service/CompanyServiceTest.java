@@ -51,4 +51,10 @@ class CompanyServiceTest {
         verifyNoMoreInteractions(applicationEventPublisher, userService);
     }
 
+    @Test
+    void checkFindByQueries(){
+        companyRepository.findCompanyByName("Google");
+        companyRepository.findAllByNameContainingIgnoreCase("a");
+    }
+
 }

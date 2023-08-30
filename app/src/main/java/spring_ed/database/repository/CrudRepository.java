@@ -1,3 +1,4 @@
+/*
 package spring_ed.database.repository;
 
 import java.util.Optional;
@@ -9,3 +10,4 @@ public interface CrudRepository<K, E> {
 
     void delete(E entity);
 }
+*/

@@ -1,11 +1,12 @@
 package spring_ed.database.repository;
 
-import org.springframework.data.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import spring_ed.database.entity.Company;
 
+import java.util.List;
 import java.util.Optional;
 
-public interface CompanyRepository extends Repository<Company, Integer> {
+public interface CompanyRepository extends JpaRepository<Company, Integer> {
 
 
     //имя ConnectionPool - влияет. С самого начала @Autowired захочет инициализировать
@@ -30,8 +31,15 @@ public interface CompanyRepository extends Repository<Company, Integer> {
     //    log.info("init company repository");
     //}
 
+    // Эти операции уже есть в CrudRepository
+    //
+    //Optional<Company> findById(Integer id);
+    //
+    //void delete(Company entity);
 
-    Optional<Company> findById(Integer id);
+    //Optional, Entity, Future(java.util.concurrent), Projection
+    Optional<Company> findCompanyByName(String name);
 
-    void delete(Company entity);
+    //Collection, Stream (получаем не все сразу записи, а в зависимости от batch size)
+    List<Company> findAllByNameContainingIgnoreCase(String fragment);
 }
