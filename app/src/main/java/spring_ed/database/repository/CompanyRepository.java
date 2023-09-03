@@ -1,6 +1,7 @@
 package spring_ed.database.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import spring_ed.database.entity.Company;
 
@@ -39,6 +40,10 @@ public interface CompanyRepository extends JpaRepository<Company, Integer> {
     //void delete(Company entity);
 
     //Optional, Entity, Future(java.util.concurrent), Projection
+    //@Query(name = "Company.findCompanyByName") - нужно для явного указания именованных запросов
+    @Query("select c from Company c " +
+            "join fetch c.locations cl " +
+            "where c.name = :name2")// подгружать ленивые сущности
     Optional<Company> findCompanyByName(@Param("name2") String name);
 
     //Collection, Stream (получаем не все сразу записи, а в зависимости от batch size)

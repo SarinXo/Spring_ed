@@ -1,14 +1,16 @@
 package spring_ed.database.repository;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Repository;
-import spring_ed.database.pool.ConnectionPool;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import spring_ed.database.entity.User;
 
-@Repository
-@RequiredArgsConstructor
-public class UserRepository {
-    @Qualifier("id_is_pool1")
-    private final ConnectionPool connectionPool;
+import java.util.List;
+
+public interface UserRepository extends JpaRepository<User, Integer> {
+    @Query("select u from User u " +
+            "where " +
+            "u.firstname like :firstname and " +
+            "u.lastname like :lastname")
+    List<User> findAll(String firstname, String lastname);
 
 }

@@ -38,17 +38,17 @@ public class ApplicationConfiguration {
         return new ConnectionPool("username", 30);
     }
 
-    @Bean
+    /*@Bean
     public UserRepository userRepository1(ConnectionPool connectionPool2){
         return new UserRepository(connectionPool2);
-    }
+    }*/
 
     // ! | &
-    @Profile("web")
+    /*@Profile("web")
     @Bean
     public UserRepository userRepository2( ){
         var b1 = connectionPool3();
         var b2 = connectionPool3();
         return new UserRepository(connectionPool3());
-    }
+    }*/
 }
