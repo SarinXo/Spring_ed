@@ -15,11 +15,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapKeyColumn;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import java.util.HashMap;
 import java.util.Map;
 
 @Data
+@NamedQuery(
+        name = "Company.findCompanyByName",
+        query = "select c from Company c where lower(c.name) = lower(:name2)"// ?1
+)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
